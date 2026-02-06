@@ -351,7 +351,7 @@ const Programs = () => {
       title: "Gerakan Pungut Sampah",
       subtitle: "#GPS",
       desc: "Aksi langsung bersih-bersih lingkungan yang melibatkan ribuan relawan di seluruh Indonesia.",
-      image: "https://images.unsplash.com/photo-1639374694382-67e79f6bee9a?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjA2MDV8MHwxfHNlYXJjaHw0fHxlbnZpcm9ubWVudGFsJTIwYWN0aXZpc3QlMjBncm91cCUyMGNsZWFuaW5nJTIwdHJhc2glMjBpbmRvbmVzaWF8ZW58MHx8fHwxNzcwMzg5ODE5fDA&ixlib=rb-4.1.0&q=85",
+      image: "https://images.unsplash.com/photo-1639374694382-67e79f6bee9a?w=800&q=75&fm=webp",
       color: "#D32F2F",
       size: "large"
     },
@@ -359,7 +359,7 @@ const Programs = () => {
       title: "Good Festival",
       subtitle: "#GOODFESTIVAL",
       desc: "Panduan dan kolaborasi untuk festival ramah lingkungan tanpa sampah plastik sekali pakai.",
-      image: "https://images.unsplash.com/photo-1533174072545-7a4b6ad7a6c3?w=800",
+      image: "https://images.unsplash.com/photo-1533174072545-7a4b6ad7a6c3?w=600&q=75&fm=webp",
       color: "#2E7D32",
       size: "medium"
     },
@@ -367,7 +367,7 @@ const Programs = () => {
       title: "Gerakan 1000 Tumbler",
       subtitle: "#GERAKAN1000TUMBLER",
       desc: "Kampanye pengurangan botol plastik dengan mengajak masyarakat beralih ke tumbler.",
-      image: "https://images.unsplash.com/photo-1602143407151-7111542de6e8?w=800",
+      image: "https://images.unsplash.com/photo-1602143407151-7111542de6e8?w=600&q=75&fm=webp",
       color: "#0288D1",
       size: "medium"
     },
@@ -375,7 +375,7 @@ const Programs = () => {
       title: "GPS Pelajar",
       subtitle: "#GPSPELAJAR",
       desc: "Program edukasi dan aksi lingkungan khusus untuk pelajar di sekolah-sekolah.",
-      image: "https://images.unsplash.com/photo-1427504494785-3a9ca7044f45?w=800",
+      image: "https://images.unsplash.com/photo-1427504494785-3a9ca7044f45?w=400&q=75&fm=webp",
       color: "#D32F2F",
       size: "small"
     },
@@ -383,7 +383,7 @@ const Programs = () => {
       title: "Pilah Sampah",
       subtitle: "#PILAHSAMPAH",
       desc: "Kampanye pemilahan sampah organik dan anorganik dari rumah tangga.",
-      image: "https://images.unsplash.com/photo-1532996122724-e3c354a0b15b?w=800",
+      image: "https://images.unsplash.com/photo-1532996122724-e3c354a0b15b?w=400&q=75&fm=webp",
       color: "#2E7D32",
       size: "small"
     },
@@ -391,7 +391,7 @@ const Programs = () => {
       title: "Event Kolaborasi",
       subtitle: "FORMULA E • FIBA • WWF",
       desc: "Pengelolaan sampah profesional untuk event besar nasional dan internasional.",
-      image: "https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=800",
+      image: "https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=400&q=75&fm=webp",
       color: "#0288D1",
       size: "small"
     },
