@@ -665,11 +665,13 @@ const Footer = () => {
         <div className="flex flex-col items-center gap-8">
           {/* Logo */}
           <div className="flex items-center gap-3">
-            <img 
-              src="https://customer-assets.emergentagent.com/job_green-initiative-3/artifacts/jwxf1ta8_image.png" 
-              alt="Cleanaction Logo" 
-              className="w-12 h-12 object-contain brightness-0 invert"
-            />
+            <div className="w-12 h-12 bg-white rounded-lg p-1 flex items-center justify-center">
+              <img 
+                src="https://customer-assets.emergentagent.com/job_green-initiative-3/artifacts/jwxf1ta8_image.png" 
+                alt="Cleanaction Logo" 
+                className="w-full h-full object-contain"
+              />
+            </div>
             <div>
               <span 
                 className="font-bold text-2xl uppercase tracking-tight block"
