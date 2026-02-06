@@ -659,7 +659,7 @@ const Footer = () => {
   return (
     <footer className="bg-[#111827] text-white py-12" data-testid="footer">
       <div className="max-w-7xl mx-auto px-4 md:px-8">
-        <div className="flex flex-col md:flex-row items-center justify-between gap-8">
+        <div className="flex flex-col items-center gap-8">
           {/* Logo */}
           <div className="flex items-center gap-3">
             <div className="w-12 h-12 bg-[#D32F2F] rounded-full flex items-center justify-center">
@@ -677,23 +677,12 @@ const Footer = () => {
           </div>
 
           {/* Links */}
-          <div className="flex items-center gap-8">
+          <div className="flex items-center gap-6 md:gap-8 flex-wrap justify-center">
             <a href="#beranda" className="text-gray-400 hover:text-white transition-colors duration-300 uppercase text-sm tracking-wider" style={{ fontFamily: 'Unbounded' }}>Beranda</a>
             <a href="#tentang" className="text-gray-400 hover:text-white transition-colors duration-300 uppercase text-sm tracking-wider" style={{ fontFamily: 'Unbounded' }}>Tentang</a>
             <a href="#program" className="text-gray-400 hover:text-white transition-colors duration-300 uppercase text-sm tracking-wider" style={{ fontFamily: 'Unbounded' }}>Program</a>
             <a href="#kontak" className="text-gray-400 hover:text-white transition-colors duration-300 uppercase text-sm tracking-wider" style={{ fontFamily: 'Unbounded' }}>Kontak</a>
           </div>
-
-          {/* Social */}
-          <a
-            href="https://instagram.com/cleanaction"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="w-12 h-12 bg-gradient-to-r from-purple-600 via-pink-500 to-orange-400 flex items-center justify-center hover:scale-110 transition-transform duration-300"
-            data-testid="footer-instagram"
-          >
-            <Instagram className="w-6 h-6 text-white" />
-          </a>
         </div>
 
         <div className="border-t border-gray-800 mt-8 pt-8 text-center">
