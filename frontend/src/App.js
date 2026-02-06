@@ -124,11 +124,11 @@ const Navigation = () => {
 const Hero = () => {
   return (
     <section id="beranda" className="relative min-h-screen flex items-center pt-20" data-testid="hero-section">
-      {/* Background Image with Overlay */}
+      {/* Background Image with Overlay - Optimized */}
       <div 
         className="absolute inset-0 hero-bg"
         style={{
-          backgroundImage: `url('https://images.unsplash.com/photo-1639374550500-e45ebd7167f2?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjA2MDV8MHwxfHNlYXJjaHwxfHxlbnZpcm9ubWVudGFsJTIwYWN0aXZpc3QlMjBncm91cCUyMGNsZWFuaW5nJTIwdHJhc2glMjBpbmRvbmVzaWF8ZW58MHx8fHwxNzcwMzg5ODE5fDA&ixlib=rb-4.1.0&q=85')`
+          backgroundImage: `url('https://images.unsplash.com/photo-1639374550500-e45ebd7167f2?w=1200&q=75&fm=webp')`
         }}
       >
         <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/60 to-transparent"></div>
