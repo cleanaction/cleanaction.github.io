@@ -1,52 +1,736 @@
-import { useEffect } from "react";
+import { useState, useEffect } from "react";
 import "@/App.css";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
-import axios from "axios";
+import { Heart, Leaf, Trash2, Recycle, Users, Instagram, Menu, X, ChevronDown, MapPin, ExternalLink, ArrowRight } from "lucide-react";
+import { Button } from "@/components/ui/button";
 
-const BACKEND_URL = process.env.REACT_APP_BACKEND_URL;
-const API = `${BACKEND_URL}/api`;
-
-const Home = () => {
-  const helloWorldApi = async () => {
-    try {
-      const response = await axios.get(`${API}/`);
-      console.log(response.data.message);
-    } catch (e) {
-      console.error(e, `errored out requesting / api`);
-    }
-  };
-
-  useEffect(() => {
-    helloWorldApi();
-  }, []);
-
+// Marquee Component
+const Marquee = () => {
+  const text = "MANUSIA BISA PUNAH TAPI STYROFOAM TIDAK • STOP NYAMPAH! • AYO #PILAHSAMPAH! • JADILAH BAGIAN DARI #GOODFESTIVAL • ";
+  
   return (
-    <div>
-      <header className="App-header">
-        <a
-          className="App-link"
-          href="https://emergent.sh"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <img src="https://avatars.githubusercontent.com/in/1201222?s=120&u=2686cf91179bbafbc7a71bfbc43004cf9ae1acea&v=4" />
-        </a>
-        <p className="mt-5">Building something incredible ~!</p>
-      </header>
+    <div className="bg-[#D32F2F] text-white py-3 overflow-hidden" data-testid="marquee">
+      <div className="animate-marquee whitespace-nowrap flex">
+        <span className="font-bold uppercase tracking-widest text-sm md:text-base mx-4">{text}{text}{text}{text}</span>
+      </div>
     </div>
   );
 };
 
+// Navigation Component
+const Navigation = () => {
+  const [isOpen, setIsOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 50);
+    };
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  const navLinks = [
+    { href: "#beranda", label: "Beranda" },
+    { href: "#tentang", label: "Tentang Kami" },
+    { href: "#program", label: "Program" },
+    { href: "#kontak", label: "Kontak" },
+  ];
+
+  return (
+    <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${scrolled ? 'glass-nav border-b border-gray-200' : 'bg-transparent'}`} data-testid="navigation">
+      <div className="max-w-7xl mx-auto px-4 md:px-8">
+        <div className="flex items-center justify-between h-16 md:h-20">
+          {/* Logo */}
+          <a href="#beranda" className="flex items-center gap-2 group" data-testid="logo">
+            <div className="w-10 h-10 bg-[#D32F2F] rounded-full flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+              <Heart className="w-6 h-6 text-white fill-white" />
+            </div>
+            <span className="font-bold text-xl md:text-2xl uppercase tracking-tight" style={{ fontFamily: 'Barlow Condensed' }}>
+              Clean<span className="text-[#D32F2F]">action</span>
+            </span>
+          </a>
+
+          {/* Desktop Navigation */}
+          <div className="hidden md:flex items-center gap-8">
+            {navLinks.map((link) => (
+              <a
+                key={link.href}
+                href={link.href}
+                className="nav-link font-semibold uppercase tracking-wider text-sm hover:text-[#D32F2F] transition-colors duration-300"
+                style={{ fontFamily: 'Barlow Condensed' }}
+                data-testid={`nav-${link.label.toLowerCase().replace(' ', '-')}`}
+              >
+                {link.label}
+              </a>
+            ))}
+            <a
+              href="https://instagram.com/cleanaction"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn-primary px-6 py-2 flex items-center gap-2"
+              data-testid="nav-instagram-btn"
+            >
+              <Instagram className="w-4 h-4" />
+              Follow
+            </a>
+          </div>
+
+          {/* Mobile Menu Button */}
+          <button
+            className="md:hidden p-2"
+            onClick={() => setIsOpen(!isOpen)}
+            data-testid="mobile-menu-btn"
+          >
+            {isOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+          </button>
+        </div>
+
+        {/* Mobile Navigation */}
+        {isOpen && (
+          <div className="md:hidden mobile-menu-enter bg-white border-t border-gray-200 py-4" data-testid="mobile-menu">
+            {navLinks.map((link) => (
+              <a
+                key={link.href}
+                href={link.href}
+                className="block py-3 px-4 font-semibold uppercase tracking-wider text-sm hover:bg-gray-100 hover:text-[#D32F2F]"
+                style={{ fontFamily: 'Barlow Condensed' }}
+                onClick={() => setIsOpen(false)}
+              >
+                {link.label}
+              </a>
+            ))}
+            <div className="px-4 pt-4">
+              <a
+                href="https://instagram.com/cleanaction"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="btn-primary px-6 py-3 flex items-center justify-center gap-2 w-full"
+              >
+                <Instagram className="w-4 h-4" />
+                Follow Instagram
+              </a>
+            </div>
+          </div>
+        )}
+      </div>
+    </nav>
+  );
+};
+
+// Hero Section
+const Hero = () => {
+  return (
+    <section id="beranda" className="relative min-h-screen flex items-center pt-20" data-testid="hero-section">
+      {/* Background Image with Overlay */}
+      <div 
+        className="absolute inset-0 hero-bg"
+        style={{
+          backgroundImage: `url('https://images.unsplash.com/photo-1639374550500-e45ebd7167f2?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjA2MDV8MHwxfHNlYXJjaHwxfHxlbnZpcm9ubWVudGFsJTIwYWN0aXZpc3QlMjBncm91cCUyMGNsZWFuaW5nJTIwdHJhc2glMjBpbmRvbmVzaWF8ZW58MHx8fHwxNzcwMzg5ODE5fDA&ixlib=rb-4.1.0&q=85')`
+        }}
+      >
+        <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/60 to-transparent"></div>
+      </div>
+
+      <div className="relative z-10 max-w-7xl mx-auto px-4 md:px-8 py-16 md:py-24">
+        <div className="max-w-3xl stagger-children">
+          <p 
+            className="text-[#D32F2F] font-bold uppercase tracking-widest text-sm md:text-base mb-4 fade-in-up opacity-0"
+            style={{ fontFamily: 'Barlow Condensed' }}
+            data-testid="hero-tagline"
+          >
+            Gerakan Lingkungan Indonesia
+          </p>
+          
+          <h1 
+            className="text-5xl md:text-7xl lg:text-8xl font-black uppercase tracking-tighter leading-[0.9] text-white mb-6 fade-in-up opacity-0"
+            style={{ fontFamily: 'Barlow Condensed' }}
+            data-testid="hero-title"
+          >
+            Aku, Kamu,<br />
+            <span className="text-[#D32F2F]">Indonesia</span><br />
+            Planet Kita
+          </h1>
+          
+          <p 
+            className="text-lg md:text-xl text-gray-200 mb-8 max-w-xl leading-relaxed fade-in-up opacity-0"
+            data-testid="hero-description"
+          >
+            Kurangi potensi sampah yang berakhir merusak darat, air, udara. 
+            Bersama kita wujudkan Indonesia bebas sampah plastik.
+          </p>
+          
+          <div className="flex flex-col sm:flex-row gap-4 fade-in-up opacity-0">
+            <a
+              href="#program"
+              className="btn-primary px-8 py-4 text-lg flex items-center justify-center gap-2"
+              data-testid="hero-cta-program"
+            >
+              Lihat Program
+              <ArrowRight className="w-5 h-5" />
+            </a>
+            <a
+              href="#tentang"
+              className="bg-white/10 backdrop-blur-sm text-white px-8 py-4 text-lg font-bold uppercase tracking-wider flex items-center justify-center gap-2 border-2 border-white/30 hover:bg-white/20 transition-colors duration-300"
+              style={{ fontFamily: 'Barlow Condensed' }}
+              data-testid="hero-cta-about"
+            >
+              Tentang Kami
+            </a>
+          </div>
+        </div>
+      </div>
+
+      {/* Scroll indicator */}
+      <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 text-white animate-bounce">
+        <ChevronDown className="w-8 h-8" />
+      </div>
+    </section>
+  );
+};
+
+// Stats Section
+const Stats = () => {
+  const stats = [
+    { number: "500K+", label: "Kg Sampah Terkelola", icon: Trash2 },
+    { number: "50K+", label: "Relawan Aktif", icon: Users },
+    { number: "100+", label: "Event Kolaborasi", icon: Heart },
+    { number: "17", label: "Tahun Berjuang", icon: Leaf },
+  ];
+
+  return (
+    <section className="py-16 md:py-24 bg-[#111827]" data-testid="stats-section">
+      <div className="max-w-7xl mx-auto px-4 md:px-8">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
+          {stats.map((stat, index) => (
+            <div 
+              key={index} 
+              className="text-center"
+              data-testid={`stat-${index}`}
+            >
+              <div className="w-16 h-16 mx-auto mb-4 bg-[#D32F2F] rounded-full flex items-center justify-center">
+                <stat.icon className="w-8 h-8 text-white" />
+              </div>
+              <p 
+                className="text-4xl md:text-5xl font-black text-white mb-2 stat-number"
+                style={{ fontFamily: 'Barlow Condensed' }}
+              >
+                {stat.number}
+              </p>
+              <p className="text-gray-400 text-sm md:text-base uppercase tracking-wider" style={{ fontFamily: 'Barlow Condensed' }}>
+                {stat.label}
+              </p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+};
+
+// About Section
+const About = () => {
+  const values = [
+    { 
+      icon: Users, 
+      title: "Gotong Royong", 
+      desc: "Kerja sama lintas profesi, komunitas, dan sektor untuk dampak nyata." 
+    },
+    { 
+      icon: Recycle, 
+      title: "Keberlanjutan", 
+      desc: "Solusi jangka panjang untuk masalah lingkungan yang sistematis." 
+    },
+    { 
+      icon: Heart, 
+      title: "Pemberdayaan", 
+      desc: "Membangun kapasitas masyarakat untuk aksi mandiri." 
+    },
+  ];
+
+  return (
+    <section id="tentang" className="py-16 md:py-24 bg-white" data-testid="about-section">
+      <div className="max-w-7xl mx-auto px-4 md:px-8">
+        {/* Origin Story */}
+        <div className="grid md:grid-cols-2 gap-12 items-center mb-20">
+          <div className="order-2 md:order-1">
+            <p 
+              className="text-[#D32F2F] font-bold uppercase tracking-widest text-sm mb-4"
+              style={{ fontFamily: 'Barlow Condensed' }}
+            >
+              Asal Mula
+            </p>
+            <h2 
+              className="text-4xl md:text-6xl font-bold uppercase tracking-tight mb-6"
+              style={{ fontFamily: 'Barlow Condensed' }}
+              data-testid="about-title"
+            >
+              Dari Tragedi<br />
+              <span className="text-[#D32F2F]">Leuwigajah</span>
+            </h2>
+            <div className="space-y-4 text-gray-600 leading-relaxed">
+              <p data-testid="about-story">
+                Cleanaction lahir dari tragedi longsor TPA Leuwigajah, Bandung pada 21 Februari 2005 
+                yang merenggut 157 jiwa. Tragedi ini menjadi titik balik kesadaran akan pentingnya 
+                pengelolaan sampah yang bertanggung jawab.
+              </p>
+              <p>
+                Sejak saat itu, kami bergerak bersama masyarakat, pemerintah, dan sektor swasta 
+                untuk mewujudkan Indonesia yang lebih bersih dan lestari.
+              </p>
+              <blockquote className="border-l-4 border-[#D32F2F] pl-4 italic text-lg text-gray-800">
+                "Bumi ini dipinjam dari masa depan. Musti diperbaiki cara pikir untuk menjaga 
+                ekosistem dari mulai lingkar terkecil, termudah, dan segera!"
+              </blockquote>
+            </div>
+          </div>
+          
+          <div className="order-1 md:order-2">
+            <div className="relative">
+              <div className="absolute -inset-4 bg-[#D32F2F] -z-10 translate-x-4 translate-y-4"></div>
+              <img
+                src="https://images.unsplash.com/photo-1757356892992-d8e5ceb4429d?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NTYxODd8MHwxfHNlYXJjaHw0fHxwbGFzdGljJTIwd2FzdGUlMjBtb3VudGFpbiUyMHBvbGx1dGlvbnxlbnwwfHx8fDE3NzAzODk4MjZ8MA&ixlib=rb-4.1.0&q=85"
+                alt="Masalah sampah plastik"
+                className="w-full h-80 md:h-[450px] object-cover"
+                data-testid="about-image"
+              />
+            </div>
+          </div>
+        </div>
+
+        {/* Values */}
+        <div>
+          <div className="text-center mb-12">
+            <p 
+              className="text-[#2E7D32] font-bold uppercase tracking-widest text-sm mb-4"
+              style={{ fontFamily: 'Barlow Condensed' }}
+            >
+              Nilai-Nilai Kami
+            </p>
+            <h3 
+              className="text-3xl md:text-4xl font-bold uppercase tracking-tight"
+              style={{ fontFamily: 'Barlow Condensed' }}
+            >
+              Segitiga Perubahan
+            </h3>
+          </div>
+          
+          <div className="grid md:grid-cols-3 gap-8">
+            {values.map((value, index) => (
+              <div 
+                key={index}
+                className="bg-white border border-gray-200 p-8 brutalist-shadow program-card"
+                data-testid={`value-${index}`}
+              >
+                <div className="w-14 h-14 bg-[#D32F2F] flex items-center justify-center mb-6">
+                  <value.icon className="w-7 h-7 text-white" />
+                </div>
+                <h4 
+                  className="text-2xl font-bold uppercase mb-4"
+                  style={{ fontFamily: 'Barlow Condensed' }}
+                >
+                  {value.title}
+                </h4>
+                <p className="text-gray-600">{value.desc}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+};
+
+// Programs Section
+const Programs = () => {
+  const programs = [
+    {
+      title: "Gerakan Pungut Sampah",
+      subtitle: "#GPS",
+      desc: "Aksi langsung bersih-bersih lingkungan yang melibatkan ribuan relawan di seluruh Indonesia.",
+      image: "https://images.unsplash.com/photo-1639374694382-67e79f6bee9a?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjA2MDV8MHwxfHNlYXJjaHw0fHxlbnZpcm9ubWVudGFsJTIwYWN0aXZpc3QlMjBncm91cCUyMGNsZWFuaW5nJTIwdHJhc2glMjBpbmRvbmVzaWF8ZW58MHx8fHwxNzcwMzg5ODE5fDA&ixlib=rb-4.1.0&q=85",
+      color: "#D32F2F",
+      size: "large"
+    },
+    {
+      title: "Good Festival",
+      subtitle: "#GOODFESTIVAL",
+      desc: "Panduan dan kolaborasi untuk festival ramah lingkungan tanpa sampah plastik sekali pakai.",
+      image: "https://images.unsplash.com/photo-1533174072545-7a4b6ad7a6c3?w=800",
+      color: "#2E7D32",
+      size: "medium"
+    },
+    {
+      title: "Gerakan 1000 Tumbler",
+      subtitle: "#GERAKAN1000TUMBLER",
+      desc: "Kampanye pengurangan botol plastik dengan mengajak masyarakat beralih ke tumbler.",
+      image: "https://images.unsplash.com/photo-1602143407151-7111542de6e8?w=800",
+      color: "#0288D1",
+      size: "medium"
+    },
+    {
+      title: "GPS Pelajar",
+      subtitle: "#GPSPELAJAR",
+      desc: "Program edukasi dan aksi lingkungan khusus untuk pelajar di sekolah-sekolah.",
+      image: "https://images.unsplash.com/photo-1427504494785-3a9ca7044f45?w=800",
+      color: "#D32F2F",
+      size: "small"
+    },
+    {
+      title: "Pilah Sampah",
+      subtitle: "#PILAHSAMPAH",
+      desc: "Kampanye pemilahan sampah organik dan anorganik dari rumah tangga.",
+      image: "https://images.unsplash.com/photo-1532996122724-e3c354a0b15b?w=800",
+      color: "#2E7D32",
+      size: "small"
+    },
+    {
+      title: "Event Kolaborasi",
+      subtitle: "FORMULA E • FIBA • WWF",
+      desc: "Pengelolaan sampah profesional untuk event besar nasional dan internasional.",
+      image: "https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=800",
+      color: "#0288D1",
+      size: "small"
+    },
+  ];
+
+  return (
+    <section id="program" className="py-16 md:py-24 bg-[#F3F4F6]" data-testid="programs-section">
+      <div className="max-w-7xl mx-auto px-4 md:px-8">
+        <div className="text-center mb-16">
+          <p 
+            className="text-[#D32F2F] font-bold uppercase tracking-widest text-sm mb-4"
+            style={{ fontFamily: 'Barlow Condensed' }}
+          >
+            Program Kami
+          </p>
+          <h2 
+            className="text-4xl md:text-6xl font-bold uppercase tracking-tight mb-4"
+            style={{ fontFamily: 'Barlow Condensed' }}
+            data-testid="programs-title"
+          >
+            Aksi Nyata untuk<br />
+            <span className="text-[#D32F2F]">Lingkungan</span>
+          </h2>
+          <p className="text-gray-600 max-w-2xl mx-auto">
+            Berbagai program dan inisiatif yang kami jalankan bersama masyarakat, 
+            pemerintah, dan sektor swasta.
+          </p>
+        </div>
+
+        {/* Bento Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          {/* Large Card */}
+          <div 
+            className="md:col-span-2 md:row-span-2 relative overflow-hidden bg-white brutalist-shadow program-card group img-zoom"
+            data-testid="program-card-0"
+          >
+            <img 
+              src={programs[0].image} 
+              alt={programs[0].title}
+              className="w-full h-full min-h-[400px] object-cover"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent"></div>
+            <div className="absolute bottom-0 left-0 right-0 p-8">
+              <span 
+                className="inline-block px-3 py-1 text-white text-xs font-bold uppercase tracking-wider mb-4"
+                style={{ backgroundColor: programs[0].color, fontFamily: 'Barlow Condensed' }}
+              >
+                {programs[0].subtitle}
+              </span>
+              <h3 
+                className="text-3xl md:text-4xl font-bold uppercase text-white mb-3"
+                style={{ fontFamily: 'Barlow Condensed' }}
+              >
+                {programs[0].title}
+              </h3>
+              <p className="text-gray-300 max-w-lg">{programs[0].desc}</p>
+            </div>
+          </div>
+
+          {/* Medium Cards */}
+          {programs.slice(1, 3).map((program, index) => (
+            <div 
+              key={index}
+              className="relative overflow-hidden bg-white brutalist-shadow program-card group img-zoom"
+              data-testid={`program-card-${index + 1}`}
+            >
+              <img 
+                src={program.image} 
+                alt={program.title}
+                className="w-full h-64 object-cover"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent"></div>
+              <div className="absolute bottom-0 left-0 right-0 p-6">
+                <span 
+                  className="inline-block px-2 py-1 text-white text-xs font-bold uppercase tracking-wider mb-2"
+                  style={{ backgroundColor: program.color, fontFamily: 'Barlow Condensed' }}
+                >
+                  {program.subtitle}
+                </span>
+                <h3 
+                  className="text-xl font-bold uppercase text-white mb-2"
+                  style={{ fontFamily: 'Barlow Condensed' }}
+                >
+                  {program.title}
+                </h3>
+                <p className="text-gray-300 text-sm">{program.desc}</p>
+              </div>
+            </div>
+          ))}
+
+          {/* Small Cards */}
+          {programs.slice(3).map((program, index) => (
+            <div 
+              key={index}
+              className="bg-white border border-gray-200 p-6 brutalist-shadow program-card"
+              data-testid={`program-card-${index + 3}`}
+            >
+              <span 
+                className="inline-block px-2 py-1 text-white text-xs font-bold uppercase tracking-wider mb-4"
+                style={{ backgroundColor: program.color, fontFamily: 'Barlow Condensed' }}
+              >
+                {program.subtitle}
+              </span>
+              <h3 
+                className="text-xl font-bold uppercase mb-3"
+                style={{ fontFamily: 'Barlow Condensed' }}
+              >
+                {program.title}
+              </h3>
+              <p className="text-gray-600 text-sm">{program.desc}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+};
+
+// Contact Section
+const Contact = () => {
+  return (
+    <section id="kontak" className="py-16 md:py-24 bg-white" data-testid="contact-section">
+      <div className="max-w-7xl mx-auto px-4 md:px-8">
+        <div className="grid md:grid-cols-2 gap-12 items-start">
+          {/* Contact Info */}
+          <div>
+            <p 
+              className="text-[#D32F2F] font-bold uppercase tracking-widest text-sm mb-4"
+              style={{ fontFamily: 'Barlow Condensed' }}
+            >
+              Hubungi Kami
+            </p>
+            <h2 
+              className="text-4xl md:text-6xl font-bold uppercase tracking-tight mb-6"
+              style={{ fontFamily: 'Barlow Condensed' }}
+              data-testid="contact-title"
+            >
+              Bergabung<br />
+              <span className="text-[#D32F2F]">Bersama Kami</span>
+            </h2>
+            <p className="text-gray-600 mb-8 leading-relaxed">
+              Ingin berkontribusi untuk lingkungan yang lebih baik? Hubungi kami melalui 
+              Instagram atau kunjungi aksi-aksi kami di lapangan. Bersama kita bisa!
+            </p>
+
+            <div className="space-y-6">
+              <a 
+                href="https://instagram.com/cleanaction"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-4 p-4 bg-gradient-to-r from-purple-600 via-pink-500 to-orange-400 text-white hover:scale-[1.02] transition-transform duration-300"
+                data-testid="instagram-link"
+              >
+                <Instagram className="w-8 h-8" />
+                <div>
+                  <p className="font-bold text-lg" style={{ fontFamily: 'Barlow Condensed' }}>@cleanaction</p>
+                  <p className="text-sm opacity-90">Follow kami di Instagram</p>
+                </div>
+                <ExternalLink className="w-5 h-5 ml-auto" />
+              </a>
+
+              <div className="flex items-center gap-4 p-4 bg-gray-100">
+                <MapPin className="w-8 h-8 text-[#D32F2F]" />
+                <div>
+                  <p className="font-bold text-lg" style={{ fontFamily: 'Barlow Condensed' }}>cleanaction.id</p>
+                  <p className="text-sm text-gray-600">Website Resmi</p>
+                </div>
+              </div>
+            </div>
+
+            {/* CTA */}
+            <div className="mt-10 p-8 bg-[#111827] text-white">
+              <h3 
+                className="text-2xl font-bold uppercase mb-4"
+                style={{ fontFamily: 'Barlow Condensed' }}
+              >
+                Sudah Lakukan Apa Untuk Planetmu?
+              </h3>
+              <p className="text-gray-400 mb-6">
+                Mulai dari hal kecil: bawa tumbler, pilah sampah, ikut aksi bersih-bersih. 
+                Setiap aksi kecilmu berarti!
+              </p>
+              <a
+                href="https://instagram.com/cleanaction"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="btn-primary px-8 py-4 inline-flex items-center gap-2"
+                data-testid="cta-join"
+              >
+                Gabung Sekarang
+                <ArrowRight className="w-5 h-5" />
+              </a>
+            </div>
+          </div>
+
+          {/* Instagram Feed Placeholder */}
+          <div>
+            <div className="bg-white border border-gray-200 p-6 brutalist-shadow">
+              <div className="flex items-center gap-3 mb-6">
+                <div className="w-12 h-12 bg-gradient-to-r from-purple-600 via-pink-500 to-orange-400 rounded-full flex items-center justify-center">
+                  <Instagram className="w-6 h-6 text-white" />
+                </div>
+                <div>
+                  <p className="font-bold" style={{ fontFamily: 'Barlow Condensed' }}>@cleanaction</p>
+                  <p className="text-sm text-gray-500">Instagram Feed</p>
+                </div>
+              </div>
+
+              {/* SnapWidget Placeholder */}
+              <div 
+                id="snapwidget-placeholder" 
+                className="min-h-[400px] bg-gray-100 flex flex-col items-center justify-center p-8 text-center"
+                data-testid="instagram-feed-placeholder"
+              >
+                {/* 
+                  INSTRUKSI UNTUK EMBED INSTAGRAM FEED:
+                  1. Buat akun di https://snapwidget.com
+                  2. Connect Instagram @cleanaction
+                  3. Pilih layout grid
+                  4. Copy iframe code dan paste di sini
+                  
+                  Contoh:
+                  <iframe src="https://snapwidget.com/embed/XXXXXX" 
+                    className="snapwidget-widget" 
+                    allowtransparency="true" 
+                    frameborder="0" 
+                    scrolling="no" 
+                    style="border:none; overflow:hidden; width:100%; height:400px">
+                  </iframe>
+                */}
+                <Instagram className="w-16 h-16 text-gray-400 mb-4" />
+                <p className="font-bold text-gray-600 mb-2" style={{ fontFamily: 'Barlow Condensed' }}>
+                  Instagram Feed Live
+                </p>
+                <p className="text-gray-500 text-sm mb-4">
+                  Untuk menampilkan feed Instagram live, integrasikan dengan SnapWidget
+                </p>
+                <a
+                  href="https://instagram.com/cleanaction"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-[#D32F2F] font-bold text-sm hover:underline"
+                >
+                  Lihat di Instagram →
+                </a>
+              </div>
+
+              {/* Preview Grid (static fallback) */}
+              <div className="grid grid-cols-3 gap-2 mt-4">
+                {[1, 2, 3, 4, 5, 6].map((i) => (
+                  <div 
+                    key={i}
+                    className="aspect-square bg-gradient-to-br from-gray-200 to-gray-300 flex items-center justify-center"
+                  >
+                    <Leaf className="w-8 h-8 text-gray-400" />
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+};
+
+// Footer
+const Footer = () => {
+  return (
+    <footer className="bg-[#111827] text-white py-12" data-testid="footer">
+      <div className="max-w-7xl mx-auto px-4 md:px-8">
+        <div className="flex flex-col md:flex-row items-center justify-between gap-8">
+          {/* Logo */}
+          <div className="flex items-center gap-3">
+            <div className="w-12 h-12 bg-[#D32F2F] rounded-full flex items-center justify-center">
+              <Heart className="w-7 h-7 text-white fill-white" />
+            </div>
+            <div>
+              <span 
+                className="font-bold text-2xl uppercase tracking-tight block"
+                style={{ fontFamily: 'Barlow Condensed' }}
+              >
+                Clean<span className="text-[#D32F2F]">action</span>
+              </span>
+              <span className="text-gray-400 text-sm">cleanaction.id</span>
+            </div>
+          </div>
+
+          {/* Links */}
+          <div className="flex items-center gap-8">
+            <a href="#beranda" className="text-gray-400 hover:text-white transition-colors duration-300 uppercase text-sm tracking-wider" style={{ fontFamily: 'Barlow Condensed' }}>Beranda</a>
+            <a href="#tentang" className="text-gray-400 hover:text-white transition-colors duration-300 uppercase text-sm tracking-wider" style={{ fontFamily: 'Barlow Condensed' }}>Tentang</a>
+            <a href="#program" className="text-gray-400 hover:text-white transition-colors duration-300 uppercase text-sm tracking-wider" style={{ fontFamily: 'Barlow Condensed' }}>Program</a>
+            <a href="#kontak" className="text-gray-400 hover:text-white transition-colors duration-300 uppercase text-sm tracking-wider" style={{ fontFamily: 'Barlow Condensed' }}>Kontak</a>
+          </div>
+
+          {/* Social */}
+          <a
+            href="https://instagram.com/cleanaction"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="w-12 h-12 bg-gradient-to-r from-purple-600 via-pink-500 to-orange-400 flex items-center justify-center hover:scale-110 transition-transform duration-300"
+            data-testid="footer-instagram"
+          >
+            <Instagram className="w-6 h-6 text-white" />
+          </a>
+        </div>
+
+        <div className="border-t border-gray-800 mt-8 pt-8 text-center">
+          <p className="text-gray-500 text-sm">
+            © {new Date().getFullYear()} Cleanaction Network. Semua hak dilindungi.
+          </p>
+          <p className="text-gray-600 text-xs mt-2">
+            "Dimana bumi dipijak di situ bersih dijaga"
+          </p>
+        </div>
+      </div>
+    </footer>
+  );
+};
+
+// Main App
 function App() {
   return (
     <div className="App">
-      <BrowserRouter>
-        <Routes>
-          <Route path="/" element={<Home />}>
-            <Route index element={<Home />} />
-          </Route>
-        </Routes>
-      </BrowserRouter>
+      {/* Noise Overlay */}
+      <div className="noise-overlay"></div>
+      
+      {/* Navigation */}
+      <Navigation />
+      
+      {/* Main Content */}
+      <main>
+        <Hero />
+        <Marquee />
+        <Stats />
+        <About />
+        <Programs />
+        <Contact />
+      </main>
+      
+      {/* Footer */}
+      <Footer />
     </div>
   );
 }
