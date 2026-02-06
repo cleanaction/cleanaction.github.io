@@ -587,7 +587,7 @@ const Contact = () => {
             </div>
           </div>
 
-          {/* Instagram Feed Placeholder */}
+          {/* Instagram Feed */}
           <div>
             <div className="bg-white border border-gray-200 p-6 brutalist-shadow">
               <div className="flex items-center gap-3 mb-6">
@@ -600,55 +600,57 @@ const Contact = () => {
                 </div>
               </div>
 
-              {/* SnapWidget Placeholder */}
+              {/* Instagram Embedded Posts */}
               <div 
-                id="snapwidget-placeholder" 
-                className="min-h-[400px] bg-gray-100 flex flex-col items-center justify-center p-8 text-center"
-                data-testid="instagram-feed-placeholder"
+                className="space-y-4 max-h-[500px] overflow-y-auto"
+                data-testid="instagram-embed-container"
               >
-                {/* 
-                  INSTRUKSI UNTUK EMBED INSTAGRAM FEED:
-                  1. Buat akun di https://snapwidget.com
-                  2. Connect Instagram @cleanaction
-                  3. Pilih layout grid
-                  4. Copy iframe code dan paste di sini
-                  
-                  Contoh:
-                  <iframe src="https://snapwidget.com/embed/XXXXXX" 
-                    className="snapwidget-widget" 
-                    allowtransparency="true" 
-                    frameborder="0" 
-                    scrolling="no" 
-                    style="border:none; overflow:hidden; width:100%; height:400px">
-                  </iframe>
-                */}
-                <Instagram className="w-16 h-16 text-gray-400 mb-4" />
-                <p className="font-bold text-gray-600 mb-2" style={{ fontFamily: 'Unbounded' }}>
-                  Instagram Feed Live
-                </p>
-                <p className="text-gray-500 text-sm mb-4">
-                  Untuk menampilkan feed Instagram live, integrasikan dengan SnapWidget
-                </p>
+                {/* Instagram Embed 1 */}
+                <blockquote 
+                  className="instagram-media" 
+                  data-instgrm-captioned 
+                  data-instgrm-permalink="https://www.instagram.com/cleanaction/"
+                  data-instgrm-version="14"
+                  style={{ 
+                    background: '#FFF', 
+                    border: 0, 
+                    borderRadius: '3px', 
+                    boxShadow: '0 0 1px 0 rgba(0,0,0,0.5), 0 1px 10px 0 rgba(0,0,0,0.15)', 
+                    margin: '1px', 
+                    maxWidth: '540px', 
+                    minWidth: '326px', 
+                    padding: 0, 
+                    width: '100%' 
+                  }}
+                >
+                  <div style={{ padding: '16px' }}>
+                    <a 
+                      href="https://www.instagram.com/cleanaction/" 
+                      target="_blank" 
+                      rel="noopener noreferrer"
+                      className="block text-center"
+                    >
+                      <div className="flex items-center justify-center gap-2 mb-3">
+                        <Instagram className="w-5 h-5 text-gray-600" />
+                        <span className="text-gray-600 text-sm">Lihat profil di Instagram</span>
+                      </div>
+                    </a>
+                  </div>
+                </blockquote>
+              </div>
+
+              {/* Follow Button */}
+              <div className="mt-6 text-center">
                 <a
                   href="https://instagram.com/cleanaction"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-[#D32F2F] font-bold text-sm hover:underline"
+                  className="inline-flex items-center gap-2 bg-gradient-to-r from-purple-600 via-pink-500 to-orange-400 text-white px-6 py-3 font-bold hover:opacity-90 transition-opacity"
+                  style={{ fontFamily: 'Unbounded' }}
                 >
-                  Lihat di Instagram →
+                  <Instagram className="w-5 h-5" />
+                  Follow @cleanaction
                 </a>
-              </div>
-
-              {/* Preview Grid (static fallback) */}
-              <div className="grid grid-cols-3 gap-2 mt-4">
-                {[1, 2, 3, 4, 5, 6].map((i) => (
-                  <div 
-                    key={i}
-                    className="aspect-square bg-gradient-to-br from-gray-200 to-gray-300 flex items-center justify-center"
-                  >
-                    <Leaf className="w-8 h-8 text-gray-400" />
-                  </div>
-                ))}
               </div>
             </div>
           </div>
