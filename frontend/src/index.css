@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700;800;900&family=DM+Sans:opsz,wght@9..40,400;500;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Outfit:wght@300;400;500;600;700&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -31,7 +31,7 @@ html {
 }
 
 body {
-  font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-family: 'Outfit', -apple-system, BlinkMacSystemFont, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background-color: #F9FAFB;
@@ -40,7 +40,8 @@ body {
 }
 
 h1, h2, h3, h4, h5, h6 {
-  font-family: 'Barlow Condensed', sans-serif;
+  font-family: 'Bebas Neue', sans-serif;
+  letter-spacing: 0.02em;
 }
 
 /* Noise texture overlay */
