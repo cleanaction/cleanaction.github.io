@@ -43,7 +43,7 @@ const Navigation = () => {
           <a href="#beranda" className="flex items-center gap-2 group" data-testid="logo">
             <div className="w-12 h-12 bg-white rounded-full p-2 flex items-center justify-center shadow-md group-hover:scale-110 transition-transform duration-300">
               <img 
-                src="https://customer-assets.emergentagent.com/job_green-initiative-3/artifacts/jwxf1ta8_image.png" 
+                src="/logo.png" 
                 alt="Cleanaction Logo" 
                 className="w-full h-full object-contain"
               />
@@ -600,7 +600,7 @@ const Footer = () => {
           <div className="flex items-center gap-3">
             <div className="w-14 h-14 bg-white rounded-full p-2 flex items-center justify-center shadow-lg">
               <img 
-                src="https://customer-assets.emergentagent.com/job_green-initiative-3/artifacts/jwxf1ta8_image.png" 
+                src="/logo.png" 
                 alt="Cleanaction Logo" 
                 className="w-full h-full object-contain"
               />
