@@ -1,6 +1,7 @@
 {
-  "name": "frontend",
-  "version": "0.1.0",
+  "name": "cleanaction-website",
+  "version": "1.0.0",
+  "homepage": "https://cleanaction.id",
   "private": true,
   "dependencies": {
     "@hookform/resolvers": "^5.0.1",
