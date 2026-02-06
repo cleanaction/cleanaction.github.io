@@ -45,7 +45,7 @@ const Navigation = () => {
             <div className="w-10 h-10 bg-[#D32F2F] rounded-full flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
               <Heart className="w-6 h-6 text-white fill-white" />
             </div>
-            <span className="font-bold text-xl md:text-2xl uppercase tracking-tight" style={{ fontFamily: 'Bebas Neue' }}>
+            <span className="font-bold text-xl md:text-2xl uppercase tracking-tight" style={{ fontFamily: 'Syne' }}>
               Clean<span className="text-[#D32F2F]">action</span>
             </span>
           </a>
@@ -57,7 +57,7 @@ const Navigation = () => {
                 key={link.href}
                 href={link.href}
                 className="nav-link font-semibold uppercase tracking-wider text-sm hover:text-[#D32F2F] transition-colors duration-300"
-                style={{ fontFamily: 'Bebas Neue' }}
+                style={{ fontFamily: 'Syne' }}
                 data-testid={`nav-${link.label.toLowerCase().replace(' ', '-')}`}
               >
                 {link.label}
@@ -93,7 +93,7 @@ const Navigation = () => {
                 key={link.href}
                 href={link.href}
                 className="block py-3 px-4 font-semibold uppercase tracking-wider text-sm hover:bg-gray-100 hover:text-[#D32F2F]"
-                style={{ fontFamily: 'Bebas Neue' }}
+                style={{ fontFamily: 'Syne' }}
                 onClick={() => setIsOpen(false)}
               >
                 {link.label}
@@ -135,7 +135,7 @@ const Hero = () => {
         <div className="max-w-3xl stagger-children">
           <p 
             className="text-[#D32F2F] font-bold uppercase tracking-widest text-sm md:text-base mb-4 fade-in-up opacity-0"
-            style={{ fontFamily: 'Bebas Neue' }}
+            style={{ fontFamily: 'Syne' }}
             data-testid="hero-tagline"
           >
             Gerakan Lingkungan Indonesia
@@ -143,7 +143,7 @@ const Hero = () => {
           
           <h1 
             className="text-5xl md:text-7xl lg:text-8xl font-black uppercase tracking-tighter leading-[0.9] text-white mb-6 fade-in-up opacity-0"
-            style={{ fontFamily: 'Bebas Neue' }}
+            style={{ fontFamily: 'Syne' }}
             data-testid="hero-title"
           >
             Aku, Kamu,<br />
@@ -171,7 +171,7 @@ const Hero = () => {
             <a
               href="#tentang"
               className="bg-white/10 backdrop-blur-sm text-white px-8 py-4 text-lg font-bold uppercase tracking-wider flex items-center justify-center gap-2 border-2 border-white/30 hover:bg-white/20 transition-colors duration-300"
-              style={{ fontFamily: 'Bebas Neue' }}
+              style={{ fontFamily: 'Syne' }}
               data-testid="hero-cta-about"
             >
               Tentang Kami
@@ -212,11 +212,11 @@ const Stats = () => {
               </div>
               <p 
                 className="text-4xl md:text-5xl font-black text-white mb-2 stat-number"
-                style={{ fontFamily: 'Bebas Neue' }}
+                style={{ fontFamily: 'Syne' }}
               >
                 {stat.number}
               </p>
-              <p className="text-gray-400 text-sm md:text-base uppercase tracking-wider" style={{ fontFamily: 'Bebas Neue' }}>
+              <p className="text-gray-400 text-sm md:text-base uppercase tracking-wider" style={{ fontFamily: 'Syne' }}>
                 {stat.label}
               </p>
             </div>
@@ -255,13 +255,13 @@ const About = () => {
           <div className="order-2 md:order-1">
             <p 
               className="text-[#D32F2F] font-bold uppercase tracking-widest text-sm mb-4"
-              style={{ fontFamily: 'Bebas Neue' }}
+              style={{ fontFamily: 'Syne' }}
             >
               Asal Mula
             </p>
             <h2 
               className="text-4xl md:text-6xl font-bold uppercase tracking-tight mb-6"
-              style={{ fontFamily: 'Bebas Neue' }}
+              style={{ fontFamily: 'Syne' }}
               data-testid="about-title"
             >
               Dari Tragedi<br />
@@ -302,13 +302,13 @@ const About = () => {
           <div className="text-center mb-12">
             <p 
               className="text-[#2E7D32] font-bold uppercase tracking-widest text-sm mb-4"
-              style={{ fontFamily: 'Bebas Neue' }}
+              style={{ fontFamily: 'Syne' }}
             >
               Nilai-Nilai Kami
             </p>
             <h3 
               className="text-3xl md:text-4xl font-bold uppercase tracking-tight"
-              style={{ fontFamily: 'Bebas Neue' }}
+              style={{ fontFamily: 'Syne' }}
             >
               Segitiga Perubahan
             </h3>
@@ -326,7 +326,7 @@ const About = () => {
                 </div>
                 <h4 
                   className="text-2xl font-bold uppercase mb-4"
-                  style={{ fontFamily: 'Bebas Neue' }}
+                  style={{ fontFamily: 'Syne' }}
                 >
                   {value.title}
                 </h4>
@@ -399,13 +399,13 @@ const Programs = () => {
         <div className="text-center mb-16">
           <p 
             className="text-[#D32F2F] font-bold uppercase tracking-widest text-sm mb-4"
-            style={{ fontFamily: 'Bebas Neue' }}
+            style={{ fontFamily: 'Syne' }}
           >
             Program Kami
           </p>
           <h2 
             className="text-4xl md:text-6xl font-bold uppercase tracking-tight mb-4"
-            style={{ fontFamily: 'Bebas Neue' }}
+            style={{ fontFamily: 'Syne' }}
             data-testid="programs-title"
           >
             Aksi Nyata untuk<br />
@@ -439,7 +439,7 @@ const Programs = () => {
               </span>
               <h3 
                 className="text-3xl md:text-4xl font-bold uppercase text-white mb-3"
-                style={{ fontFamily: 'Bebas Neue' }}
+                style={{ fontFamily: 'Syne' }}
               >
                 {programs[0].title}
               </h3>
@@ -469,7 +469,7 @@ const Programs = () => {
                 </span>
                 <h3 
                   className="text-xl font-bold uppercase text-white mb-2"
-                  style={{ fontFamily: 'Bebas Neue' }}
+                  style={{ fontFamily: 'Syne' }}
                 >
                   {program.title}
                 </h3>
@@ -493,7 +493,7 @@ const Programs = () => {
               </span>
               <h3 
                 className="text-xl font-bold uppercase mb-3"
-                style={{ fontFamily: 'Bebas Neue' }}
+                style={{ fontFamily: 'Syne' }}
               >
                 {program.title}
               </h3>
@@ -516,13 +516,13 @@ const Contact = () => {
           <div>
             <p 
               className="text-[#D32F2F] font-bold uppercase tracking-widest text-sm mb-4"
-              style={{ fontFamily: 'Bebas Neue' }}
+              style={{ fontFamily: 'Syne' }}
             >
               Hubungi Kami
             </p>
             <h2 
               className="text-4xl md:text-6xl font-bold uppercase tracking-tight mb-6"
-              style={{ fontFamily: 'Bebas Neue' }}
+              style={{ fontFamily: 'Syne' }}
               data-testid="contact-title"
             >
               Bergabung<br />
@@ -543,7 +543,7 @@ const Contact = () => {
               >
                 <Instagram className="w-8 h-8" />
                 <div>
-                  <p className="font-bold text-lg" style={{ fontFamily: 'Bebas Neue' }}>@cleanaction</p>
+                  <p className="font-bold text-lg" style={{ fontFamily: 'Syne' }}>@cleanaction</p>
                   <p className="text-sm opacity-90">Follow kami di Instagram</p>
                 </div>
                 <ExternalLink className="w-5 h-5 ml-auto" />
@@ -552,7 +552,7 @@ const Contact = () => {
               <div className="flex items-center gap-4 p-4 bg-gray-100">
                 <MapPin className="w-8 h-8 text-[#D32F2F]" />
                 <div>
-                  <p className="font-bold text-lg" style={{ fontFamily: 'Bebas Neue' }}>cleanaction.id</p>
+                  <p className="font-bold text-lg" style={{ fontFamily: 'Syne' }}>cleanaction.id</p>
                   <p className="text-sm text-gray-600">Website Resmi</p>
                 </div>
               </div>
@@ -562,7 +562,7 @@ const Contact = () => {
             <div className="mt-10 p-8 bg-[#111827] text-white">
               <h3 
                 className="text-2xl font-bold uppercase mb-4"
-                style={{ fontFamily: 'Bebas Neue' }}
+                style={{ fontFamily: 'Syne' }}
               >
                 Sudah Lakukan Apa Untuk Planetmu?
               </h3>
@@ -591,7 +591,7 @@ const Contact = () => {
                   <Instagram className="w-6 h-6 text-white" />
                 </div>
                 <div>
-                  <p className="font-bold" style={{ fontFamily: 'Bebas Neue' }}>@cleanaction</p>
+                  <p className="font-bold" style={{ fontFamily: 'Syne' }}>@cleanaction</p>
                   <p className="text-sm text-gray-500">Instagram Feed</p>
                 </div>
               </div>
@@ -619,7 +619,7 @@ const Contact = () => {
                   </iframe>
                 */}
                 <Instagram className="w-16 h-16 text-gray-400 mb-4" />
-                <p className="font-bold text-gray-600 mb-2" style={{ fontFamily: 'Bebas Neue' }}>
+                <p className="font-bold text-gray-600 mb-2" style={{ fontFamily: 'Syne' }}>
                   Instagram Feed Live
                 </p>
                 <p className="text-gray-500 text-sm mb-4">
@@ -668,7 +668,7 @@ const Footer = () => {
             <div>
               <span 
                 className="font-bold text-2xl uppercase tracking-tight block"
-                style={{ fontFamily: 'Bebas Neue' }}
+                style={{ fontFamily: 'Syne' }}
               >
                 Clean<span className="text-[#D32F2F]">action</span>
               </span>
@@ -678,10 +678,10 @@ const Footer = () => {
 
           {/* Links */}
           <div className="flex items-center gap-8">
-            <a href="#beranda" className="text-gray-400 hover:text-white transition-colors duration-300 uppercase text-sm tracking-wider" style={{ fontFamily: 'Bebas Neue' }}>Beranda</a>
-            <a href="#tentang" className="text-gray-400 hover:text-white transition-colors duration-300 uppercase text-sm tracking-wider" style={{ fontFamily: 'Bebas Neue' }}>Tentang</a>
-            <a href="#program" className="text-gray-400 hover:text-white transition-colors duration-300 uppercase text-sm tracking-wider" style={{ fontFamily: 'Bebas Neue' }}>Program</a>
-            <a href="#kontak" className="text-gray-400 hover:text-white transition-colors duration-300 uppercase text-sm tracking-wider" style={{ fontFamily: 'Bebas Neue' }}>Kontak</a>
+            <a href="#beranda" className="text-gray-400 hover:text-white transition-colors duration-300 uppercase text-sm tracking-wider" style={{ fontFamily: 'Syne' }}>Beranda</a>
+            <a href="#tentang" className="text-gray-400 hover:text-white transition-colors duration-300 uppercase text-sm tracking-wider" style={{ fontFamily: 'Syne' }}>Tentang</a>
+            <a href="#program" className="text-gray-400 hover:text-white transition-colors duration-300 uppercase text-sm tracking-wider" style={{ fontFamily: 'Syne' }}>Program</a>
+            <a href="#kontak" className="text-gray-400 hover:text-white transition-colors duration-300 uppercase text-sm tracking-wider" style={{ fontFamily: 'Syne' }}>Kontak</a>
           </div>
 
           {/* Social */}
