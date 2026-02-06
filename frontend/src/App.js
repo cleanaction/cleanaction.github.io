@@ -665,7 +665,7 @@ const Footer = () => {
         <div className="flex flex-col items-center gap-8">
           {/* Logo */}
           <div className="flex items-center gap-3">
-            <div className="w-12 h-12 bg-white rounded-lg p-1 flex items-center justify-center">
+            <div className="w-14 h-14 bg-white rounded-full p-2 flex items-center justify-center shadow-lg">
               <img 
                 src="https://customer-assets.emergentagent.com/job_green-initiative-3/artifacts/jwxf1ta8_image.png" 
                 alt="Cleanaction Logo" 
