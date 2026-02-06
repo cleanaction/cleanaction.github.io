@@ -512,6 +512,13 @@ const Programs = () => {
 
 // Contact Section
 const Contact = () => {
+  useEffect(() => {
+    // Load Instagram embed script
+    if (window.instgrm) {
+      window.instgrm.Embeds.process();
+    }
+  }, []);
+
   return (
     <section id="kontak" className="py-16 md:py-24 bg-white" data-testid="contact-section">
       <div className="max-w-7xl mx-auto px-4 md:px-8">
