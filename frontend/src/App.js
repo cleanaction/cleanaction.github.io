@@ -46,6 +46,7 @@ const Navigation = () => {
               src="https://customer-assets.emergentagent.com/job_green-initiative-3/artifacts/jwxf1ta8_image.png" 
               alt="Cleanaction Logo" 
               className="w-10 h-10 object-contain group-hover:scale-110 transition-transform duration-300"
+              style={{ mixBlendMode: 'multiply' }}
             />
             <span className="font-bold text-xl md:text-2xl uppercase tracking-tight" style={{ fontFamily: 'Unbounded' }}>
               Clean<span className="text-[#D32F2F]">action</span>
@@ -667,7 +668,7 @@ const Footer = () => {
             <img 
               src="https://customer-assets.emergentagent.com/job_green-initiative-3/artifacts/jwxf1ta8_image.png" 
               alt="Cleanaction Logo" 
-              className="w-12 h-12 object-contain"
+              className="w-12 h-12 object-contain brightness-0 invert"
             />
             <div>
               <span 
