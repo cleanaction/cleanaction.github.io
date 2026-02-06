@@ -522,128 +522,127 @@ const Contact = () => {
   return (
     <section id="kontak" className="py-16 md:py-24 bg-white" data-testid="contact-section">
       <div className="max-w-7xl mx-auto px-4 md:px-8">
-        <div className="grid md:grid-cols-2 gap-12 items-start">
-          {/* Contact Info */}
-          <div>
-            <p 
-              className="text-[#D32F2F] font-bold uppercase tracking-widest text-sm mb-4"
-              style={{ fontFamily: 'Unbounded' }}
-            >
-              Hubungi Kami
-            </p>
-            <h2 
-              className="text-3xl md:text-4xl lg:text-5xl font-bold uppercase tracking-tight mb-6"
-              style={{ fontFamily: 'Unbounded' }}
-              data-testid="contact-title"
-            >
-              Bergabung<br />
-              <span className="text-[#D32F2F]">Bersama Kami</span>
-            </h2>
-            <p className="text-gray-600 mb-8 leading-relaxed">
-              Ingin berkontribusi untuk lingkungan yang lebih baik? Hubungi kami melalui 
-              Instagram atau kunjungi aksi-aksi kami di lapangan. Bersama kita bisa!
-            </p>
+        {/* Header */}
+        <div className="text-center mb-12">
+          <p 
+            className="text-[#D32F2F] font-bold uppercase tracking-widest text-sm mb-4"
+            style={{ fontFamily: 'Unbounded' }}
+          >
+            Hubungi Kami
+          </p>
+          <h2 
+            className="text-3xl md:text-4xl lg:text-5xl font-bold uppercase tracking-tight mb-4"
+            style={{ fontFamily: 'Unbounded' }}
+            data-testid="contact-title"
+          >
+            Bergabung <span className="text-[#D32F2F]">Bersama Kami</span>
+          </h2>
+          <p className="text-gray-600 max-w-2xl mx-auto">
+            Ingin berkontribusi untuk lingkungan yang lebih baik? Follow Instagram kami 
+            dan ikuti aksi-aksi di lapangan. Bersama kita bisa!
+          </p>
+        </div>
 
-            <div className="space-y-6">
-              <a 
-                href="https://instagram.com/cleanaction"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center gap-4 p-4 bg-gradient-to-r from-purple-600 via-pink-500 to-orange-400 text-white hover:scale-[1.02] transition-transform duration-300"
-                data-testid="instagram-link"
-              >
-                <Instagram className="w-8 h-8" />
-                <div>
-                  <p className="font-bold text-lg" style={{ fontFamily: 'Unbounded' }}>@cleanaction</p>
-                  <p className="text-sm opacity-90">Follow kami di Instagram</p>
-                </div>
-                <ExternalLink className="w-5 h-5 ml-auto" />
-              </a>
-
-              <div className="flex items-center gap-4 p-4 bg-gray-100">
-                <MapPin className="w-8 h-8 text-[#D32F2F]" />
-                <div>
-                  <p className="font-bold text-lg" style={{ fontFamily: 'Unbounded' }}>cleanaction.id</p>
-                  <p className="text-sm text-gray-600">Website Resmi</p>
-                </div>
+        {/* Instagram Feed - Full Width */}
+        <div className="mb-12">
+          <div className="bg-white border border-gray-200 p-6 md:p-8 brutalist-shadow">
+            <div className="flex items-center justify-center gap-3 mb-8">
+              <div className="w-14 h-14 bg-gradient-to-r from-purple-600 via-pink-500 to-orange-400 rounded-full flex items-center justify-center">
+                <Instagram className="w-7 h-7 text-white" />
+              </div>
+              <div>
+                <p className="font-bold text-xl" style={{ fontFamily: 'Unbounded' }}>@cleanaction</p>
+                <p className="text-sm text-gray-500">Instagram Feed</p>
               </div>
             </div>
 
-            {/* CTA */}
-            <div className="mt-10 p-8 bg-[#111827] text-white">
-              <h3 
-                className="text-2xl font-bold uppercase mb-4"
-                style={{ fontFamily: 'Unbounded' }}
-              >
-                Sudah Lakukan Apa Untuk Planetmu?
-              </h3>
-              <p className="text-gray-400 mb-6">
-                Mulai dari hal kecil: bawa tumbler, pilah sampah, ikut aksi bersih-bersih. 
-                Setiap aksi kecilmu berarti!
-              </p>
+            {/* Instagram Embedded Post - Larger */}
+            <div 
+              className="flex justify-center"
+              data-testid="instagram-embed-container"
+            >
+              <iframe 
+                src="https://www.instagram.com/cleanaction/embed" 
+                width="100%" 
+                height="600" 
+                frameBorder="0" 
+                scrolling="yes" 
+                allowTransparency="true"
+                style={{ 
+                  background: 'white',
+                  maxWidth: '680px',
+                  minWidth: '326px',
+                  border: '1px solid #dbdbdb',
+                  borderRadius: '8px'
+                }}
+                title="Instagram @cleanaction"
+              ></iframe>
+            </div>
+
+            {/* Follow Button */}
+            <div className="mt-8 text-center">
               <a
                 href="https://instagram.com/cleanaction"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="btn-primary px-8 py-4 inline-flex items-center gap-2"
-                data-testid="cta-join"
+                className="inline-flex items-center gap-2 bg-gradient-to-r from-purple-600 via-pink-500 to-orange-400 text-white px-8 py-4 font-bold hover:opacity-90 transition-opacity rounded-full text-lg"
+                style={{ fontFamily: 'Unbounded' }}
               >
-                Gabung Sekarang
-                <ArrowRight className="w-5 h-5" />
+                <Instagram className="w-6 h-6" />
+                Follow @cleanaction
               </a>
             </div>
           </div>
+        </div>
 
-          {/* Instagram Feed */}
-          <div>
-            <div className="bg-white border border-gray-200 p-6 brutalist-shadow">
-              <div className="flex items-center gap-3 mb-6">
-                <div className="w-12 h-12 bg-gradient-to-r from-purple-600 via-pink-500 to-orange-400 rounded-full flex items-center justify-center">
-                  <Instagram className="w-6 h-6 text-white" />
-                </div>
-                <div>
-                  <p className="font-bold" style={{ fontFamily: 'Unbounded' }}>@cleanaction</p>
-                  <p className="text-sm text-gray-500">Instagram Feed</p>
-                </div>
-              </div>
-
-              {/* Instagram Embedded Post */}
-              <div 
-                className="flex justify-center"
-                data-testid="instagram-embed-container"
-              >
-                <iframe 
-                  src="https://www.instagram.com/cleanaction/embed" 
-                  width="100%" 
-                  height="450" 
-                  frameBorder="0" 
-                  scrolling="no" 
-                  allowTransparency="true"
-                  style={{ 
-                    background: 'white',
-                    maxWidth: '540px',
-                    minWidth: '326px',
-                    border: '1px solid #dbdbdb',
-                    borderRadius: '4px'
-                  }}
-                  title="Instagram @cleanaction"
-                ></iframe>
-              </div>
-
-              {/* Follow Button */}
-              <div className="mt-6 text-center">
-                <a
-                  href="https://instagram.com/cleanaction"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 bg-gradient-to-r from-purple-600 via-pink-500 to-orange-400 text-white px-6 py-3 font-bold hover:opacity-90 transition-opacity rounded-full"
-                  style={{ fontFamily: 'Unbounded' }}
-                >
-                  <Instagram className="w-5 h-5" />
-                  Follow @cleanaction
-                </a>
-              </div>
+        {/* Contact Cards */}
+        <div className="grid md:grid-cols-3 gap-6">
+          {/* Instagram Card */}
+          <a 
+            href="https://instagram.com/cleanaction"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-center gap-4 p-6 bg-gradient-to-r from-purple-600 via-pink-500 to-orange-400 text-white hover:scale-[1.02] transition-transform duration-300 brutalist-shadow"
+            data-testid="instagram-link"
+          >
+            <Instagram className="w-10 h-10" />
+            <div>
+              <p className="font-bold text-lg" style={{ fontFamily: 'Unbounded' }}>@cleanaction</p>
+              <p className="text-sm opacity-90">Follow di Instagram</p>
             </div>
+            <ExternalLink className="w-5 h-5 ml-auto" />
+          </a>
+
+          {/* Website Card */}
+          <div className="flex items-center gap-4 p-6 bg-gray-100 brutalist-shadow">
+            <MapPin className="w-10 h-10 text-[#D32F2F]" />
+            <div>
+              <p className="font-bold text-lg" style={{ fontFamily: 'Unbounded' }}>cleanaction.id</p>
+              <p className="text-sm text-gray-600">Website Resmi</p>
+            </div>
+          </div>
+
+          {/* CTA Card */}
+          <div className="p-6 bg-[#111827] text-white brutalist-shadow">
+            <h3 
+              className="text-lg font-bold uppercase mb-2"
+              style={{ fontFamily: 'Unbounded' }}
+            >
+              Sudah Lakukan Apa?
+            </h3>
+            <p className="text-gray-400 text-sm mb-4">
+              Bawa tumbler, pilah sampah, ikut aksi bersih-bersih!
+            </p>
+            <a
+              href="https://instagram.com/cleanaction"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn-primary px-6 py-3 inline-flex items-center gap-2 text-sm"
+              data-testid="cta-join"
+            >
+              Gabung
+              <ArrowRight className="w-4 h-4" />
+            </a>
           </div>
         </div>
       </div>
