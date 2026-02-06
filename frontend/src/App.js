@@ -1,7 +1,6 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, lazy, Suspense } from "react";
 import "@/App.css";
-import { Heart, Leaf, Trash2, Recycle, Users, Instagram, Menu, X, ChevronDown, MapPin, ExternalLink, ArrowRight } from "lucide-react";
-import { Button } from "@/components/ui/button";
+import { Heart, Leaf, Trash2, Recycle, Users, Instagram, Menu, X, ChevronDown, ArrowRight } from "lucide-react";
 
 // Marquee Component
 const Marquee = () => {
