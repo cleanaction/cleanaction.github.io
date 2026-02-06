@@ -432,17 +432,18 @@ const Programs = () => {
               src={programs[0].image} 
               alt={programs[0].title}
               className="w-full h-full min-h-[400px] object-cover"
+              loading="lazy"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent"></div>
             <div className="absolute bottom-0 left-0 right-0 p-8">
               <span 
                 className="inline-block px-3 py-1 text-white text-xs font-bold uppercase tracking-wider mb-4"
-                style={{ backgroundColor: programs[0].color, fontFamily: 'Barlow Condensed' }}
+                style={{ backgroundColor: programs[0].color, fontFamily: 'Unbounded' }}
               >
                 {programs[0].subtitle}
               </span>
               <h3 
-                className="text-3xl md:text-4xl font-bold uppercase text-white mb-3"
+                className="text-2xl md:text-3xl font-bold uppercase text-white mb-3"
                 style={{ fontFamily: 'Unbounded' }}
               >
                 {programs[0].title}
@@ -462,12 +463,13 @@ const Programs = () => {
                 src={program.image} 
                 alt={program.title}
                 className="w-full h-64 object-cover"
+                loading="lazy"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent"></div>
               <div className="absolute bottom-0 left-0 right-0 p-6">
                 <span 
                   className="inline-block px-2 py-1 text-white text-xs font-bold uppercase tracking-wider mb-2"
-                  style={{ backgroundColor: program.color, fontFamily: 'Barlow Condensed' }}
+                  style={{ backgroundColor: program.color, fontFamily: 'Unbounded' }}
                 >
                   {program.subtitle}
                 </span>
