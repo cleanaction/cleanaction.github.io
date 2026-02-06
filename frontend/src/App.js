@@ -142,7 +142,7 @@ const Hero = () => {
           </p>
           
           <h1 
-            className="text-5xl md:text-7xl lg:text-8xl font-black uppercase tracking-tighter leading-[0.9] text-white mb-6 fade-in-up opacity-0"
+            className="text-4xl md:text-5xl lg:text-6xl font-bold uppercase tracking-tight leading-[1.1] text-white mb-6 fade-in-up opacity-0"
             style={{ fontFamily: 'Unbounded' }}
             data-testid="hero-title"
           >
@@ -211,7 +211,7 @@ const Stats = () => {
                 <stat.icon className="w-8 h-8 text-white" />
               </div>
               <p 
-                className="text-4xl md:text-5xl font-black text-white mb-2 stat-number"
+                className="text-3xl md:text-4xl font-bold text-white mb-2 stat-number"
                 style={{ fontFamily: 'Unbounded' }}
               >
                 {stat.number}
@@ -260,7 +260,7 @@ const About = () => {
               Asal Mula
             </p>
             <h2 
-              className="text-4xl md:text-6xl font-bold uppercase tracking-tight mb-6"
+              className="text-3xl md:text-4xl lg:text-5xl font-bold uppercase tracking-tight mb-6"
               style={{ fontFamily: 'Unbounded' }}
               data-testid="about-title"
             >
@@ -307,7 +307,7 @@ const About = () => {
               Nilai-Nilai Kami
             </p>
             <h3 
-              className="text-3xl md:text-4xl font-bold uppercase tracking-tight"
+              className="text-2xl md:text-3xl font-bold uppercase tracking-tight"
               style={{ fontFamily: 'Unbounded' }}
             >
               Segitiga Perubahan
@@ -325,7 +325,7 @@ const About = () => {
                   <value.icon className="w-7 h-7 text-white" />
                 </div>
                 <h4 
-                  className="text-2xl font-bold uppercase mb-4"
+                  className="text-xl font-bold uppercase mb-4"
                   style={{ fontFamily: 'Unbounded' }}
                 >
                   {value.title}
@@ -404,7 +404,7 @@ const Programs = () => {
             Program Kami
           </p>
           <h2 
-            className="text-4xl md:text-6xl font-bold uppercase tracking-tight mb-4"
+            className="text-3xl md:text-4xl lg:text-5xl font-bold uppercase tracking-tight mb-4"
             style={{ fontFamily: 'Unbounded' }}
             data-testid="programs-title"
           >
@@ -521,7 +521,7 @@ const Contact = () => {
               Hubungi Kami
             </p>
             <h2 
-              className="text-4xl md:text-6xl font-bold uppercase tracking-tight mb-6"
+              className="text-3xl md:text-4xl lg:text-5xl font-bold uppercase tracking-tight mb-6"
               style={{ fontFamily: 'Unbounded' }}
               data-testid="contact-title"
             >
