@@ -291,9 +291,10 @@ const About = () => {
             <div className="relative">
               <div className="absolute -inset-4 bg-[#D32F2F] -z-10 translate-x-4 translate-y-4"></div>
               <img
-                src="https://images.unsplash.com/photo-1757356892992-d8e5ceb4429d?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NTYxODd8MHwxfHNlYXJjaHw0fHxwbGFzdGljJTIwd2FzdGUlMjBtb3VudGFpbiUyMHBvbGx1dGlvbnxlbnwwfHx8fDE3NzAzODk4MjZ8MA&ixlib=rb-4.1.0&q=85"
+                src="https://images.unsplash.com/photo-1757356892992-d8e5ceb4429d?w=800&q=75&fm=webp"
                 alt="Masalah sampah plastik"
                 className="w-full h-80 md:h-[450px] object-cover"
+                loading="lazy"
                 data-testid="about-image"
               />
             </div>
