@@ -42,12 +42,13 @@ const Navigation = () => {
         <div className="flex items-center justify-between h-16 md:h-20">
           {/* Logo */}
           <a href="#beranda" className="flex items-center gap-2 group" data-testid="logo">
-            <img 
-              src="https://customer-assets.emergentagent.com/job_green-initiative-3/artifacts/jwxf1ta8_image.png" 
-              alt="Cleanaction Logo" 
-              className="w-10 h-10 object-contain group-hover:scale-110 transition-transform duration-300"
-              style={{ mixBlendMode: 'multiply' }}
-            />
+            <div className="w-12 h-12 bg-white rounded-full p-2 flex items-center justify-center shadow-md group-hover:scale-110 transition-transform duration-300">
+              <img 
+                src="https://customer-assets.emergentagent.com/job_green-initiative-3/artifacts/jwxf1ta8_image.png" 
+                alt="Cleanaction Logo" 
+                className="w-full h-full object-contain"
+              />
+            </div>
             <span className="font-bold text-xl md:text-2xl uppercase tracking-tight" style={{ fontFamily: 'Unbounded' }}>
               Clean<span className="text-[#D32F2F]">action</span>
             </span>
