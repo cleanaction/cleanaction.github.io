@@ -607,43 +607,27 @@ const Contact = () => {
                 </div>
               </div>
 
-              {/* Instagram Embedded Posts */}
+              {/* Instagram Embedded Post */}
               <div 
-                className="space-y-4 max-h-[500px] overflow-y-auto"
+                className="flex justify-center"
                 data-testid="instagram-embed-container"
               >
-                {/* Instagram Embed 1 */}
-                <blockquote 
-                  className="instagram-media" 
-                  data-instgrm-captioned 
-                  data-instgrm-permalink="https://www.instagram.com/cleanaction/"
-                  data-instgrm-version="14"
+                <iframe 
+                  src="https://www.instagram.com/cleanaction/embed" 
+                  width="100%" 
+                  height="450" 
+                  frameBorder="0" 
+                  scrolling="no" 
+                  allowTransparency="true"
                   style={{ 
-                    background: '#FFF', 
-                    border: 0, 
-                    borderRadius: '3px', 
-                    boxShadow: '0 0 1px 0 rgba(0,0,0,0.5), 0 1px 10px 0 rgba(0,0,0,0.15)', 
-                    margin: '1px', 
-                    maxWidth: '540px', 
-                    minWidth: '326px', 
-                    padding: 0, 
-                    width: '100%' 
+                    background: 'white',
+                    maxWidth: '540px',
+                    minWidth: '326px',
+                    border: '1px solid #dbdbdb',
+                    borderRadius: '4px'
                   }}
-                >
-                  <div style={{ padding: '16px' }}>
-                    <a 
-                      href="https://www.instagram.com/cleanaction/" 
-                      target="_blank" 
-                      rel="noopener noreferrer"
-                      className="block text-center"
-                    >
-                      <div className="flex items-center justify-center gap-2 mb-3">
-                        <Instagram className="w-5 h-5 text-gray-600" />
-                        <span className="text-gray-600 text-sm">Lihat profil di Instagram</span>
-                      </div>
-                    </a>
-                  </div>
-                </blockquote>
+                  title="Instagram @cleanaction"
+                ></iframe>
               </div>
 
               {/* Follow Button */}
@@ -652,7 +636,7 @@ const Contact = () => {
                   href="https://instagram.com/cleanaction"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 bg-gradient-to-r from-purple-600 via-pink-500 to-orange-400 text-white px-6 py-3 font-bold hover:opacity-90 transition-opacity"
+                  className="inline-flex items-center gap-2 bg-gradient-to-r from-purple-600 via-pink-500 to-orange-400 text-white px-6 py-3 font-bold hover:opacity-90 transition-opacity rounded-full"
                   style={{ fontFamily: 'Unbounded' }}
                 >
                   <Instagram className="w-5 h-5" />
